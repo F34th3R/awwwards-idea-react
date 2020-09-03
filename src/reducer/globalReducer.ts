@@ -1,12 +1,12 @@
-export interface ActionI {
-  type: string
-  theme: any
-}
-
 export interface StateI {
   currentTheme: string
-  cursorStyles: string[]
   cursorType: boolean
+  cursorStyles: string[]
+}
+
+export interface ActionI {
+  type: string
+  theme: string
 }
 
 export const globalReducer = (state: StateI, action: ActionI) => {
@@ -17,6 +17,12 @@ export const globalReducer = (state: StateI, action: ActionI) => {
         currentTheme: action.theme
       }
     }
+    // case 'CURSOR_TYPE': {
+    //   return {
+    //     ...state,
+    //     cursorType: action.cursorType
+    //   }
+    // }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
     }

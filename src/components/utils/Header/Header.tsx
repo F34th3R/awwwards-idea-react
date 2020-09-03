@@ -1,28 +1,19 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { HeaderNav, Logo, Menu } from './HeaderStyle'
 import { Container, Flex } from '../../shared'
 
-// Context
-import {
-  useGlobalDispatchContext,
-  useGlobalStateContext
-} from '../../../context/globalContext'
+import { useThemeValues } from '../../../context/themeContext'
 
 export const Header: React.FC = () => {
-  const dispatch = useGlobalDispatchContext()
-  const { currentTheme } = useGlobalStateContext()
+  const { currentTheme, setCurrentTheme } = useThemeValues()
 
   const toggleTheme = () => {
-    currentTheme === 'dark'
-      ? dispatch!({ type: 'TOGLE_THEME', theme: 'light' })
-      : dispatch!({ type: 'TOGLE_THEME', theme: 'dark' })
+    currentTheme === 'darkTheme'
+      ? setCurrentTheme('lightTheme')
+      : setCurrentTheme('darkTheme')
   }
-
-  useEffect(() => {
-    window.localStorage.setItem('theme', currentTheme)
-  }, [currentTheme])
 
   return (
     <HeaderNav

@@ -1,10 +1,10 @@
 import React from 'react'
-import { Header } from './utils'
+import { Header, CustomCursor } from './utils'
 
 export const App = () => {
   return (
     <>
-      Hola
+      <CustomCursor />
       <Header />
     </>
   )
