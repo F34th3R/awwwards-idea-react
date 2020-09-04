@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Canvas = styled.canvas`
+export const CanvasContainer = styled.canvas`
   position: absolute;
   top: 0;
   left: 0;
