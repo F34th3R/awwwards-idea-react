@@ -1,3 +1,5 @@
 export { Container } from './Container'
 export { Flex } from './Flex'
 export { Cursor } from './Cursor'
+export { HeadLine } from './HeadLine'
+export { Canvas } from './Canvas'

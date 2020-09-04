@@ -13,14 +13,14 @@ export const HeaderNav = styled(motion.div)`
 
 export const Logo = styled.div`
   a {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     text-decoration: none;
-    font-wight: 800;
+    font-weight: 800;
     color: ${props => props.theme.text || '#000'};
   }
   span {
-    height: 14px;
-    width: 14px;
+    height: 16px;
+    width: 16px;
     background: ${props => props.theme.primary};
     margin: 0 4px;
     border-radius: 100%;

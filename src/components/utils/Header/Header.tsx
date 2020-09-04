@@ -4,10 +4,15 @@ import { Link } from 'react-router-dom'
 import { HeaderNav, Logo, Menu } from './HeaderStyle'
 import { Container, Flex } from '../../shared'
 
+// Context
 import { useThemeValues } from '../../../context/themeContext'
+
+// types
+import { useCursorValues } from '../../../context/cursorContext'
 
 export const Header: React.FC = () => {
   const { currentTheme, setCurrentTheme } = useThemeValues()
+  const { onCursor } = useCursorValues()
 
   const toggleTheme = () => {
     currentTheme === 'darkTheme'
@@ -23,9 +28,16 @@ export const Header: React.FC = () => {
     >
       <Container>
         <Flex spaceBetween>
-          <Logo>
+          <Logo
+            onMouseEnter={() => onCursor('hovered')}
+            onMouseLeave={() => onCursor('none')}
+          >
             <Link to="/">P</Link>
-            <span onClick={toggleTheme}></span>
+            <span
+              onClick={toggleTheme}
+              onMouseEnter={() => onCursor('pointer')}
+              onMouseLeave={() => onCursor('none')}
+            ></span>
             <Link to="/">int</Link>
           </Logo>
           <Menu>

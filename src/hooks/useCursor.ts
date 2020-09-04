@@ -1,5 +1,9 @@
 import { useState } from 'react'
-import { CursorTypeT, CursorStylesType } from '../models/CursorType'
+import {
+  CursorTypeT,
+  CursorStylesType,
+  onCursorType
+} from '../models/CursorType'
 
 export const useCursor = () => {
   const [cursorType, setCursorType] = useState<CursorTypeT>(false)
@@ -10,5 +14,12 @@ export const useCursor = () => {
     'white'
   ])
 
-  return { cursorType, setCursorType, cursorStyles, setCursorStyles }
+  const onCursor: onCursorType = (onCursorType: CursorTypeT) => {
+    if (onCursorType === 'none') onCursorType = false
+    onCursorType =
+      (cursorStyles.includes(onCursorType as string) && onCursorType) || false
+    setCursorType(onCursorType)
+  }
+
+  return { cursorType, setCursorType, cursorStyles, setCursorStyles, onCursor }
 }

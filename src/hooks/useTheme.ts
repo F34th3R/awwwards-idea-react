@@ -48,7 +48,6 @@ export const useTheme = () => {
   )
 
   useEffect(() => {
-    console.log('useTheme ', currentTheme)
     window.localStorage.setItem('theme', currentTheme)
   }, [currentTheme])
 
