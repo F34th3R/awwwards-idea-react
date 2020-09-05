@@ -24,7 +24,7 @@ const item = {
   }
 }
 
-export const HomeBanner: React.FC = ({ children }) => {
+export const HomeBanner: React.FC = () => {
   return (
     <Banner>
       <Video>
@@ -36,7 +36,7 @@ export const HomeBanner: React.FC = ({ children }) => {
           src={require('../../../assets/video/video.mp4')}
         />
       </Video>
-      {/* <Canvas /> */}
+      <Canvas />
       <BannerTitle variants={container} initial="initial" animate="animate">
         <HeadLine variants={item}>Dig</HeadLine>
         <HeadLine variants={item}>Deep</HeadLine>

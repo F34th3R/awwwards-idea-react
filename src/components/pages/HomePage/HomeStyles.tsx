@@ -20,5 +20,5 @@ export const BannerTitle = styled(motion.h1)`
   bottom: -120px;
   left: -18px;
   color: ${props => props.theme.text};
-  pointer-event: none;
+  pointer-events: none;
 `

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { Header, CustomCursor } from './utils'
+import { Header, CustomCursor, Navigation } from './utils'
 import { HomeBanner } from './pages/HomePage'
 
 export const App = () => {
@@ -8,6 +8,7 @@ export const App = () => {
     <>
       <CustomCursor />
       <Header />
+      <Navigation />
       <Switch>
         <Route path="/">
           <HomeBanner />

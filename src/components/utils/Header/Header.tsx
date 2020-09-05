@@ -6,11 +6,11 @@ import { Container, Flex } from '../../shared'
 
 // Context
 import { useThemeValues } from '../../../context/themeContext'
-
-// types
 import { useCursorValues } from '../../../context/cursorContext'
+import { useMenuValues } from '../../../context/menuContext'
 
 export const Header: React.FC = () => {
+  const { setToggleMenu } = useMenuValues()
   const { currentTheme, setCurrentTheme } = useThemeValues()
   const { onCursor } = useCursorValues()
 
@@ -19,6 +19,8 @@ export const Header: React.FC = () => {
       ? setCurrentTheme('lightTheme')
       : setCurrentTheme('darkTheme')
   }
+
+  const toggleMenuHandler = () => setToggleMenu(prev => !prev)
 
   return (
     <HeaderNav
@@ -40,7 +42,7 @@ export const Header: React.FC = () => {
             ></span>
             <Link to="/">int</Link>
           </Logo>
-          <Menu>
+          <Menu onClick={toggleMenuHandler}>
             <button>
               <span></span>
               <span></span>

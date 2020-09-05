@@ -1,9 +1,16 @@
 import { useState, useEffect } from 'react'
 
+export type windowSizeType = {
+  width: number
+  height: number
+}
+
 export const useWindowSize = () => {
-  const getSize = {
-    width: window.innerWidth,
-    height: window.innerHeight
+  const getSize = () => {
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight
+    }
   }
 
   const [windowSize, setWindowSize] = useState(getSize)

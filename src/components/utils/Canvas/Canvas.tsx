@@ -2,15 +2,15 @@ import React, { useEffect, useRef } from 'react'
 
 import { CanvasContainer } from './CanvasStyles'
 
-import { useWindowSize } from '../../../hooks/useWindowSize'
 
 import { useCursorValues } from '../../../context/cursorContext'
 import { useThemeValues } from '../../../context/themeContext'
+import {useWindowSizeValues} from '../../../context/windowSizeContext'
 
 export const Canvas = () => {
   const { currentTheme } = useThemeValues()
   const { onCursor } = useCursorValues()
-  const windowSize = useWindowSize()
+  const {windowSize} = useWindowSizeValues()
   const canvas = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
