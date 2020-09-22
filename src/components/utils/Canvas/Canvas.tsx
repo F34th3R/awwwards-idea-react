@@ -2,15 +2,14 @@ import React, { useEffect, useRef } from 'react'
 
 import { CanvasContainer } from './CanvasStyles'
 
-
 import { useCursorValues } from '../../../context/cursorContext'
 import { useThemeValues } from '../../../context/themeContext'
-import {useWindowSizeValues} from '../../../context/windowSizeContext'
+import { useWindowSizeValues } from '../../../context/windowSizeContext'
 
 export const Canvas = () => {
   const { currentTheme } = useThemeValues()
   const { onCursor } = useCursorValues()
-  const {windowSize} = useWindowSizeValues()
+  const { windowSize } = useWindowSizeValues()
   const canvas = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -66,7 +65,7 @@ export const Canvas = () => {
         renderingCtx!.drawImage(drawingElement, 0, 0)
       }
     })
-  }, [currentTheme])
+  }, [currentTheme, windowSize])
 
   return (
     <CanvasContainer
