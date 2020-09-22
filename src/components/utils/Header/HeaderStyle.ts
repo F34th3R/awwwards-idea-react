@@ -29,20 +29,3 @@ export const Logo = styled.div`
     bottom: 2px;
   }
 `
-
-export const Menu = styled.div`
-  button {
-    transform-origin: center;
-    border: none;
-    padding: 20px;
-    background: none;
-    outline: none;
-    span {
-      width: 36px;
-      height: 8px;
-      display: block;
-      background: ${props => props.theme.text};
-      margin: 8px;
-    }
-  }
-`

@@ -1,17 +1,17 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
+import { useRecoilState } from 'recoil'
 
-import { HeaderNav, Logo, Menu } from './HeaderStyle'
-import { Container, Flex } from '../../shared'
+import { HeaderNav, Logo } from './HeaderStyle'
+import { Container, Flex, HambuergerButton } from '../../shared'
 
 // Context
-import { useThemeValues } from '../../../context/themeContext'
 import { useCursorValues } from '../../../context/cursorContext'
-import { useMenuValues } from '../../../context/menuContext'
+// states
+import { currentThemeState } from '../../../states'
 
 export const Header: React.FC = () => {
-  const { setToggleMenu } = useMenuValues()
-  const { currentTheme, setCurrentTheme } = useThemeValues()
+  const [currentTheme, setCurrentTheme] = useRecoilState(currentThemeState)
   const { onCursor } = useCursorValues()
 
   const toggleTheme = () => {
@@ -19,8 +19,6 @@ export const Header: React.FC = () => {
       ? setCurrentTheme('lightTheme')
       : setCurrentTheme('darkTheme')
   }
-
-  const toggleMenuHandler = () => setToggleMenu(prev => !prev)
 
   return (
     <HeaderNav
@@ -42,12 +40,7 @@ export const Header: React.FC = () => {
             ></span>
             <Link to="/">int</Link>
           </Logo>
-          <Menu onClick={toggleMenuHandler}>
-            <button>
-              <span></span>
-              <span></span>
-            </button>
-          </Menu>
+          <HambuergerButton />
         </Flex>
       </Container>
     </HeaderNav>

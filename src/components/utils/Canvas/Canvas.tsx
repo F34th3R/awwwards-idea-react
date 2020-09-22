@@ -3,11 +3,12 @@ import React, { useEffect, useRef } from 'react'
 import { CanvasContainer } from './CanvasStyles'
 
 import { useCursorValues } from '../../../context/cursorContext'
-import { useThemeValues } from '../../../context/themeContext'
 import { useWindowSizeValues } from '../../../context/windowSizeContext'
+import { useRecoilValue } from 'recoil'
+import { currentThemeState } from '../../../states'
 
 export const Canvas = () => {
-  const { currentTheme } = useThemeValues()
+  const currentTheme = useRecoilValue(currentThemeState)
   const { onCursor } = useCursorValues()
   const { windowSize } = useWindowSizeValues()
   const canvas = useRef<HTMLCanvasElement>(null)

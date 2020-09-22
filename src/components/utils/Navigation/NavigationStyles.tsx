@@ -22,22 +22,6 @@ export const NavHeader = styled.div`
   }
 `
 
-export const CloseNav = styled.div`
-  button {
-    transform-origin: center;
-    border: none;
-    padding: 20px;
-    background: none;
-    outline: none;
-    span {
-      width: 36px;
-      height: 8px;
-      display: block;
-      background: ${props => props.theme.background};
-      margin: 8px;
-    }
-  }
-`
 export const NavList = styled.div`
   height: 100%;
   width: 100%;
